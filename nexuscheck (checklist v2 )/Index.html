@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusCheck 2.0 - Futuristic Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">NexusCheck 2.0</h1>
+            <p class="subtitle">Your futuristic task management system</p>
+        </div>
+        
+        <div class="sidebar">
+            <h3>Task Groups</h3>
+            <ul class="groups-list" id="groupsList">
+                <!-- Groups will be added here dynamically -->
+            </ul>
+            <button class="add-group-btn" id="addGroupBtn">+ New Group</button>
+        </div>
+        
+        <div class="main-content">
+            <div class="group-header">
+                <h2 class="group-title" id="currentGroupTitle">
+                    <span class="group-color" id="currentGroupColor"></span>
+                    <span id="currentGroupName">Select a Group</span>
+                </h2>
+                <div class="group-actions">
+                    <button class="group-btn" id="editGroupBtn">Edit</button>
+                    <button class="group-btn" id="deleteGroupBtn">Delete</button>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" class="task-input" id="taskInput" placeholder="Enter a new task...">
+                <button class="add-btn" id="addBtn">Add Task</button>
+            </div>
+            
+            <ul class="task-list" id="taskList">
+                <li class="no-tasks">Select or create a group to get started</li>
+            </ul>
+            
+            <div class="stats">
+                <div class="task-count">
+                    <span>Tasks:</span>
+                    <span class="count-value" id="totalCount">0</span>
+                </div>
+                <div class="completed-count">
+                    <span>Completed:</span>
+                    <span class="completed-value" id="completedCount">0</span>
+                </div>
+                <button class="clear-btn" id="clearCompleted">Clear Completed</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Group Modal -->
+    <div class="modal" id="groupModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="groupModalTitle">Add New Group</h3>
+                <button class="close-modal" id="closeGroupModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="groupName" class="form-label">Group Name</label>
+                    <input type="text" id="groupName" class="form-input" placeholder="Enter group name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Group Color</label>
+                    <div class="color-options">
+                        <div class="color-option selected" data-color="#ff2d7b" style="background-color: #ff2d7b;"></div>
+                        <div class="color-option" data-color="#7b2dff" style="background-color: #7b2dff;"></div>
+                        <div class="color-option" data-color="#2dff7b" style="background-color: #2dff7b;"></div>
+                        <div class="color-option" data-color="#ff7b2d" style="background-color: #ff7b2d;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn cancel" id="cancelGroupModal">Cancel</button>
+                <button class="modal-btn save" id="saveGroupModal">Save</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <button class="close-notification" id="closeNotification">&times;</button>
+        <div class="notification-title">Reminder</div>
+        <div class="notification-message" id="notificationMessage"></div>
+    </div>
+    
+</body>
+</html>
